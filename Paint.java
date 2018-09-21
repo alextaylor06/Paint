@@ -1,6 +1,7 @@
 
 package paint;
 
+import java.io.FileNotFoundException;
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
@@ -12,7 +13,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 public class Paint extends Application {
     @Override
-    public void start(Stage primaryStage) {     
+    public void start(Stage primaryStage) throws FileNotFoundException {     
         //Canvas Stuff
         Canvas canvas = new Canvas(1800, 950); //Sets Canvas to size of screen to draw and print n
      
@@ -39,11 +40,9 @@ public class Paint extends Application {
         primaryStage.setHeight(bounds.getHeight());
         
         
-        Draw b=new Draw();      //Declares to objects for classes
         menuBar h=new menuBar();
-        b.start(canvas, pane, gc);//Calls objects giving variables they need 
-        h.start(canvas,pane,gc, primaryStage);
-        primaryStage.setTitle("Pain(t)");
+        h.draw(canvas, pane, gc, primaryStage);//Calls objects giving variables they need 
+        h.menu(canvas,pane,gc, primaryStage, scene);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

@@ -36,7 +36,7 @@ public class Save {
                 }
             }
     }
-     void save(Stage primaryStage,  Canvas canvas) {
+     void save(Stage primaryStage,  Canvas canvas) {  //saves whatever file save as has chosen
             //Takes the file that was saved in save as and resaves it
             if (file != null) {
                 try {
