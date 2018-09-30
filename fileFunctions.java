@@ -28,7 +28,7 @@ import javafx.scene.canvas.GraphicsContext;
  *
  * @author Alex
  */
-public class fileFunctions {
+public class fileFunctions extends menuBar{
     void exit(Stage primaryStage, Canvas canvas , Save a, boolean saved)
     {
                 if(!saved){
@@ -58,7 +58,10 @@ public class fileFunctions {
                     //Actions for buttons
                     yesBtn.setOnAction (ae -> Platform.exit());
                     noBtn.setOnAction (ae -> dialogStage.close ());
-                    savebtn.setOnAction (ae -> a.saveAs(primaryStage, canvas));
+                    savebtn.setOnAction ((e)->{
+                            a.save(primaryStage, canvas);
+                            Platform.exit();
+                    });
                 }
                 else Platform.exit();
     }
@@ -73,12 +76,11 @@ public class fileFunctions {
                 try {
                     InputStream io = new FileInputStream(file);
                     Image img = new Image(io);
-                    
                     gc.drawImage(img, 0, 0);
                 } catch (IOException ex) {
                     System.out.println("Error!");
                 }
             }
     }
-    
+  
 }

@@ -18,8 +18,10 @@ import javax.imageio.ImageIO;
 public class Save {
     //Global File
     File file;
+    Boolean firstSave=false;
     void saveAs(Stage primaryStage, Canvas canvas) {
         //Selects file and saves the whole canvas to it
+        firstSave=true;
         FileChooser savefile = new FileChooser();
             savefile.setTitle("Save File");
             
@@ -38,6 +40,14 @@ public class Save {
     }
      void save(Stage primaryStage,  Canvas canvas) {  //saves whatever file save as has chosen
             //Takes the file that was saved in save as and resaves it
+            if(!firstSave){
+                 FileChooser savefile = new FileChooser();
+            savefile.setTitle("Save File");
+            
+           file = savefile.showSaveDialog(primaryStage);
+            System.out.print(file);
+            firstSave=true;
+            }
             if (file != null) {
                 try {
                     WritableImage writableImage = new WritableImage((int)canvas.getWidth(), (int)canvas.getHeight());
