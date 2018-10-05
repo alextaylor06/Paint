@@ -1,0 +1,26 @@
+Release Notes
+REV .4
+Added Triangle draw
+Added text, font, font size
+Added Color Droppers
+Bug fixes
+UI Improvements
+Cursor Function Updates
+
+REV .3
+Added smarter save on exit
+Added Icons for draw functions
+
+REV .2
+Added Save in addition to the save as
+Made free draw, line, circle, and square 
+Color picker for outline and fill
+Added smart exit that opens dialog box upon exit
+
+REV .1
+Added scene for java with option for fullscreen
+Added menubar with open, save, and exit options as dropdown
+Open will open image with original size
+Save will save the whole scene
+Potential problems-Save saves the entire scene and not just the picture, could be problem
+
