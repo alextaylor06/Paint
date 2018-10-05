@@ -32,7 +32,7 @@ public class Save {
                     WritableImage writableImage = new WritableImage((int)canvas.getWidth(), (int)canvas.getHeight());
                     canvas.snapshot(null, writableImage);
                     RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
-                    ImageIO.write(renderedImage, "png", file);
+                    ImageIO.write(renderedImage, "pnrtg", file);
                 } catch (IOException ex) {
                     System.out.println("Error!");
                 }

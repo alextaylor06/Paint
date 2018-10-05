@@ -8,40 +8,49 @@ package paint;
 import javafx.scene.ImageCursor;
 import javafx.scene.Scene;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
-
+import javafx.scene.image.Image;    
 /**
  *
  * @author Alex
  */
 public class Pointer extends Draw{
-    
+    //Selects Cursor for being on canvas
     void cursors(ToggleButton[] toolsArr,Image[] i,Scene scene)
     {
-            toolsArr[0].setOnMousePressed((MouseEvent e) -> {
-                scene.setCursor(new ImageCursor(i[1]));
-            });
-            toolsArr[1].setOnMousePressed((MouseEvent e) -> {
+            if(toolsArr[0].isSelected()){
+                scene.setCursor(new ImageCursor(i[1]));//If draw button is selcted
+            }
+            else if(toolsArr[1].isSelected()){//Line button
                 scene.setCursor(new ImageCursor(i[0]));
-            });
-            toolsArr[2].setOnMousePressed((MouseEvent e) -> {
+            }
+            else if(toolsArr[2].isSelected()){//Rectangel Button
                 scene.setCursor(new ImageCursor(i[2]));
-            });
-            toolsArr[3].setOnMousePressed((MouseEvent e) -> {
+            }
+            else if(toolsArr[3].isSelected()){//Cirle button
                 scene.setCursor(new ImageCursor(i[3]));
-            });
-            toolsArr[4].setOnMousePressed((MouseEvent e) -> {
+            }
+           else if(toolsArr[4].isSelected()){//Elipse Button
                 scene.setCursor(new ImageCursor(i[4]));
-            });
-            toolsArr[6].setOnMousePressed((MouseEvent e) -> {
+            }
+            else if(toolsArr[6].isSelected()){//Erase button
               
                 scene.setCursor(new ImageCursor(i[6]));
-            });
-            toolsArr[5].setOnMousePressed((MouseEvent e) -> {
+            }
+            
+            else if(toolsArr[7].isSelected()){//Outline colordropper
                 
-                scene.setCursor(new ImageCursor());
-            });
+                scene.setCursor(new ImageCursor(i[7]));
+            }
+            else if(toolsArr[8].isSelected()){//Fill color dropper
+                
+                scene.setCursor(new ImageCursor(i[7]));
+            }
+           
+           else if(toolsArr[10].isSelected()){//Triangle
+                
+                scene.setCursor(new ImageCursor(i[8]));
+            }else scene.setCursor(new ImageCursor());
+            
     }
     
 }

@@ -14,20 +14,25 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
-
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 /**
  *
  * @author Alex
  * The shapes for draw function
  */
 public class shapes extends Draw{
-      void start(ToggleButton[] toolsArr, MouseEvent e, GraphicsContext gc, Line line, Circle circ,Rectangle rect,Ellipse elps,ColorPicker cpLine,ColorPicker cpFill,Scene scene)
+    double triSX;
+     double triSY;
+      void start(ToggleButton[] toolsArr, MouseEvent e, GraphicsContext gc, Line line, Circle circ,Rectangle rect,Ellipse elps,Polygon tri,ColorPicker cpLine,ColorPicker cpFill,Scene scene,String text, String font,Double size)
     {
+        triSX=0;
+        triSX=0;
         if(toolsArr[0].isSelected()) {        //Free Hand drawing
                 gc.setStroke(cpLine.getValue());
                 gc.beginPath();
-                gc.strokeOval(e.getX(), e.getX(), elps.getRadiusX(), elps.getRadiusY());
             }
             else if(toolsArr[1].isSelected()) {     //Line Drawing
                 gc.setStroke(cpLine.getValue());
@@ -55,16 +60,35 @@ public class shapes extends Draw{
                
                 gc.setStroke(Color.WHITE);
                 gc.beginPath();
-                gc.strokeOval(e.getX(), e.getX(), elps.getRadiusX(), elps.getRadiusY());
+              //   gc.strokeOval(e.getX(), e.getX(), elps.getRadiusX(), elps.getRadiusY());
+            }else if(toolsArr[9].isSelected()){ //Text 
+               
+                //gc.setLineWidth(2);
+                
+                gc.setFont(Font.font(font, FontWeight.NORMAL, size));
+                gc.setStroke(cpLine.getValue());
+                gc.setFill(cpFill.getValue());
+                gc.strokeText(text, e.getX(),e.getY());
+                gc.fillText(text, e.getX(),e.getY());
+                
+            }else if(toolsArr[10].isSelected()){//Triangle
+               
+                tri.setStrokeWidth(3);
+                gc.setStroke(cpLine.getValue());
+                gc.setFill(cpFill.getValue());
+                triSX=e.getX();
+                triSY=e.getY();
+                     
+                
             }
         
     }
     
-    void drag(ToggleButton[] toolsArr, MouseEvent e, GraphicsContext gc, Line line, Circle circ,Rectangle rect,Ellipse elps)
+    void drag(ToggleButton[] toolsArr, MouseEvent e, GraphicsContext gc, Line line, Circle circ,Rectangle rect,Ellipse elps,Polygon tri,String text,String font,ColorPicker color,ColorPicker cpFill,Double size)
     {
         
             if(toolsArr[0].isSelected()) {              //Only for draw, dragging draws along the way
-                gc.lineTo(e.getX(), e.getY());
+                gc.lineTo(e.getX()+5, e.getY()+33);
                 gc.stroke();
             }
             else if(toolsArr[1].isSelected()) {//Makes line from the start to finsih position
@@ -117,9 +141,35 @@ public class shapes extends Draw{
             }else if(toolsArr[6].isSelected()) {              //Only for draw, dragging draws along the way
                 gc.lineTo(e.getX(), e.getY());
                 gc.stroke();
+            }else if(toolsArr[9].isSelected()){
+                //gc.setLineWidth(2);
+                gc.setFont(Font.font(font, FontWeight.NORMAL, size));
+                
+                gc.strokeText(text, e.getX(),e.getY());
+                gc.fillText(text, e.getX(),e.getY());
+                
+            }else if(toolsArr[10].isSelected()){
+                
+                double X;
+                double Y;
+                if(e.getX()<triSX && e.getY()<triSY){
+                    X=e.getX()-(Math.abs(e.getX()-triSX));
+                    Y=(Math.abs(e.getY()-triSY))+e.getY();
+                     
+                }else if(e.getX()<triSX && e.getY()>triSY){
+                    X=e.getX()-(Math.abs(e.getX()-triSX));
+                    Y=e.getY()-(Math.abs(e.getY()-triSY));
+                }else if(e.getX()>triSX && e.getY()>triSY){
+                    X=(Math.abs(e.getX()-triSX))+e.getX();
+                    Y=e.getY()-(Math.abs(e.getY()-triSY));
+                    
+                }else { X=(Math.abs(e.getX()-triSX))+e.getX();
+                Y=(Math.abs(e.getY()-triSY))+e.getY();}
+                double[] polyX={triSX, e.getX(),X};
+                double[] polyY={triSY,e.getY(),Y};
+                gc.fillPolygon(polyX, polyY, 3);
+                 gc.strokePolygon(polyX, polyY, 3);
+                
             }
     }
-  
-    
-    
 }

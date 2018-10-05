@@ -27,15 +27,12 @@ public class Paint extends Application {
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
         gc.setLineWidth(1);
         
-       
-        
         //Sets Scene
        BorderPane pane = new BorderPane();
        StackPane stack = new StackPane();
        pane.setCenter(stack);
        stack.getChildren().add(canvas);
        
-         
         Scene scene = new Scene(pane, 1900, 1060);
         Screen screen = Screen.getPrimary();
         Rectangle2D bounds = screen.getVisualBounds();
@@ -44,8 +41,6 @@ public class Paint extends Application {
         primaryStage.setY(bounds.getMinY());
         primaryStage.setWidth(bounds.getWidth());
         primaryStage.setHeight(bounds.getHeight());
-        
-        
         
       //  h.draw(canvas, pane, gc, primaryStage, stack);//Calls objects giving variables they need 
         h.menu(canvas,pane,gc, primaryStage, stack,scene);
