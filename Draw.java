@@ -58,15 +58,15 @@ public class Draw extends menuBar{
     width=3;
     selectTool selec=new selectTool();
     //Load all image icons for buttons   
-    Image line1 = new Image(new FileInputStream("C:\\Users\\Alex\\Documents\\NetBeansProjects\\Paint\\src\\paint\\line.png"));
-    Image draw = new Image(new FileInputStream("C:\\Users\\Alex\\Documents\\NetBeansProjects\\Paint\\src\\paint\\draw.png"));
-    Image rectangle = new Image(new FileInputStream("C:\\Users\\Alex\\Documents\\NetBeansProjects\\Paint\\src\\paint\\rectangle.png"));
-    Image circle = new Image(new FileInputStream("C:\\Users\\Alex\\Documents\\NetBeansProjects\\Paint\\src\\paint\\circle.png"));
-    Image ellipse = new Image(new FileInputStream("C:\\Users\\Alex\\Documents\\NetBeansProjects\\Paint\\src\\paint\\ellipse.png"));
-    Image select = new Image(new FileInputStream("C:\\Users\\Alex\\Documents\\NetBeansProjects\\Paint\\src\\paint\\drag.png"));
-    Image eraser = new Image(new FileInputStream("C:\\Users\\Alex\\Documents\\NetBeansProjects\\Paint\\src\\paint\\eraser.png"));
-    Image dropper = new Image(new FileInputStream("C:\\Users\\Alex\\Documents\\NetBeansProjects\\Paint\\src\\paint\\dropper.png"));
-    Image triangle1 = new Image(new FileInputStream("C:\\Users\\Alex\\Documents\\NetBeansProjects\\Paint\\src\\paint\\triangle.png"));
+    Image line1 = new Image(new FileInputStream("C:\\Users\\Alex\\Documents\\NetBeansProjects\\Paint\\src\\paint\\icons\\line.png"));
+    Image draw = new Image(new FileInputStream("C:\\Users\\Alex\\Documents\\NetBeansProjects\\Paint\\src\\paint\\icons\\draw.png"));
+    Image rectangle = new Image(new FileInputStream("C:\\Users\\Alex\\Documents\\NetBeansProjects\\Paint\\src\\paint\\icons\\rectangle.png"));
+    Image circle = new Image(new FileInputStream("C:\\Users\\Alex\\Documents\\NetBeansProjects\\Paint\\src\\paint\\icons\\circle.png"));
+    Image ellipse = new Image(new FileInputStream("C:\\Users\\Alex\\Documents\\NetBeansProjects\\Paint\\src\\paint\\icons\\ellipse.png"));
+    Image select = new Image(new FileInputStream("C:\\Users\\Alex\\Documents\\NetBeansProjects\\Paint\\src\\paint\\icons\\drag.png"));
+    Image eraser = new Image(new FileInputStream("C:\\Users\\Alex\\Documents\\NetBeansProjects\\Paint\\src\\paint\\icons\\eraser.png"));
+    Image dropper = new Image(new FileInputStream("C:\\Users\\Alex\\Documents\\NetBeansProjects\\Paint\\src\\paint\\icons\\dropper.png"));
+    Image triangle1 = new Image(new FileInputStream("C:\\Users\\Alex\\Documents\\NetBeansProjects\\Paint\\src\\paint\\icons\\triangle.png"));
     Image[] imageArr={line1,draw,rectangle,circle,ellipse,select,eraser,dropper, triangle1};
      //Makes all buttons set to icon
     ToggleButton linebtn = new ToggleButton ("", new ImageView(line1));
